@@ -2,6 +2,6 @@ package behaviour;
 
 public interface IProduct {
     //
-    void addStock(IProduct product);
+    void addProduct(IProduct product);
 
 }

@@ -30,7 +30,6 @@ public class PersonTest{
     }
 
     @Test public void canAddCoin(){
-        ICoin coin = CoinType.ONEPOUND;
         person.addCoin(CoinType.ONEPOUND);
         assertEquals(1,person.getCoins().size());
     }

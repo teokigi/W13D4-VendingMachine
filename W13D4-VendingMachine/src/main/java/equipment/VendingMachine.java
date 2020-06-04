@@ -1,16 +1,17 @@
 package equipment;
 
+import behaviour.ICoin;
 import behaviour.IProduct;
 import product.ProductType;
 import user.CoinType;
 
 import java.util.ArrayList;
 
-public class VendingMachine implements IProduct{
+public class VendingMachine implements IProduct, ICoin {
 
     private double currencyAmount;
     private final ArrayList<IProduct> products;
-    private final ArrayList<CoinType> coinBucket;
+    private final ArrayList<ICoin> coinBucket;
 
 
     public VendingMachine(){
@@ -19,23 +20,13 @@ public class VendingMachine implements IProduct{
         this.coinBucket = new ArrayList<>();
     }
 
-
-    public void AddValue(double amount){
-        this.currencyAmount += amount;
+    public double getCurrencyAmount() {
+        return currencyAmount;
     }
 
 
-    //adds a product
-    public void addStock(IProduct product){
-        products.add(product);
-    }
-    //removes a product
-    public void removeProduct(IProduct product){
-        products.remove(product);
-    }
-    //returns true if coin value is valid
-    public boolean acceptedCoins(CoinType coin){
-         ArrayList<CoinType> validCoins = new ArrayList<>();
+    public boolean isCoinAcceptable(ICoin coin){
+        ArrayList<ICoin> validCoins = new ArrayList<>();
         validCoins.add(CoinType.TENPENCE);
         validCoins.add(CoinType.TWENTYPENCE);
         validCoins.add(CoinType.FIFTYPENCE);
@@ -44,18 +35,37 @@ public class VendingMachine implements IProduct{
         return  validCoins.contains(coin);
     }
 
-    public void addCoin(CoinType coin){
+    public void addCoin(ICoin coin){
+        if (isCoinAcceptable(coin)) {
             coinBucket.add(coin);
-            AddValue(coin.getValue());
+            addValue(coin.getValue());
+        }
     }
 
-    // redundant, doesn't do anything.
-public double getProductCost(ProductType product){
-        return product.getValue();
+    public void addValue(double amount){
+        this.currencyAmount += amount;
     }
-    // returns the amount remaining to buy product.
-    public boolean canBuyProduct(ProductType product){
-        return this.currencyAmount > product.getValue();
+
+    public void clearBalance(){
+        this.currencyAmount = 0;
+    }
+
+    public ArrayList<IProduct> getProducts() {
+        return products;
+    }
+
+    //adds a product
+    public void addProduct(IProduct product){
+        products.add(product);
+    }
+    //removes a product
+    public void removeProduct(IProduct product){
+        products.remove(product);
+    }
+    //returns true if coin value is valid
+
+    public double getProductCost(ProductType product){
+        return product.getValue();
     }
 
 }

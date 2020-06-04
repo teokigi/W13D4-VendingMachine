@@ -10,9 +10,9 @@ public class Runner {
         ProductType snack = ProductType.A1;
         ProductType snack2 = ProductType.A1;
         ProductType snack3 = ProductType.A1;
-        vendy.addStock(snack);
-        vendy.addStock(snack2);
-        vendy.addStock(snack3);
+        vendy.addProduct(snack);
+        vendy.addProduct(snack2);
+        vendy.addProduct(snack3);
 
 
     }

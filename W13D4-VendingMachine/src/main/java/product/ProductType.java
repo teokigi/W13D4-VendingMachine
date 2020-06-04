@@ -23,7 +23,7 @@ public enum ProductType implements IProduct {
                 return this.name;
         }
 
-        public void addStock(IProduct product){
+        public void addProduct(IProduct product){
                 //does nothing
         }
 }
