@@ -43,6 +43,10 @@ public class VendingMachineTest {
         assertEquals(0,vendor.getProducts().size());
     }
 
+    @Test public void canSeeProductCost(){
+        vendor.addProduct(ProductType.A1);
+        assertEquals(1.00,vendor.getProductCost(ProductType.A1),0.01);
+    }
     @Test public void canAddCoinTrue(){
         vendor.addCoin(CoinType.FIFTYPENCE);
         assertTrue(vendor.getCurrencyAmount()==0.50);
