@@ -1,3 +1,4 @@
+import behaviour.ICoin;
 import org.junit.Before;
 import org.junit.Test;
 import product.ProductType;
@@ -6,7 +7,7 @@ import user.Person;
 
 import static org.junit.Assert.assertEquals;
 
-public class PersonTest {
+public class PersonTest{
 
     Person person;
 
@@ -29,6 +30,7 @@ public class PersonTest {
     }
 
     @Test public void canAddCoin(){
+        ICoin coin = CoinType.ONEPOUND;
         person.addCoin(CoinType.ONEPOUND);
         assertEquals(1,person.getCoins().size());
     }
@@ -36,6 +38,6 @@ public class PersonTest {
     @Test public void canRemoveCoin(){
         person.addCoin(CoinType.ONEPOUND);
         person.removeCoin(CoinType.ONEPOUND);
-        assertEquals(0,person.getCoins.size());
+        assertEquals(0,person.getCoins().size());
     }
 }

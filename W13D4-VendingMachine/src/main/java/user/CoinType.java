@@ -1,6 +1,8 @@
 package user;
 
-public enum CoinType {
+import behaviour.ICoin;
+
+public enum CoinType implements ICoin {
     ONEPENCE(0.01),
     TWOPENCE(0.02),
     FIVEPENCE(0.05),
@@ -21,6 +23,10 @@ public enum CoinType {
     //returns true if coin value is greater than 0.09
     public boolean acceptedCoins(CoinType coin){
         return  coin.getValue() > 0.09;
+    }
+
+    public void addCoin(ICoin coin){
+
     }
 
 }
