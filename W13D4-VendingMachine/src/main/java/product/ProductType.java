@@ -1,6 +1,8 @@
 package product;
 
-public enum ProductType {
+import behaviour.IProduct;
+
+public enum ProductType implements IProduct {
         A1(1,"Cola"),
         A2(0.50,"Crisps"),
         A3(0.65,"Sweets");
@@ -19,6 +21,12 @@ public enum ProductType {
 
         public String getName(){
                 return this.name;
+        }
+
+        public void calculate(){
+                // check that , the product type and the money the money has entered are equal.
+
+
         }
 }
 

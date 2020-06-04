@@ -18,5 +18,9 @@ public enum CoinType {
     public double getValue(){
         return this.value;
     }
+    //returns true if coin value is greater than 0.09
+    public boolean acceptedCoins(CoinType coin){
+        return  coin.getValue() > 0.09;
+    }
 
 }
