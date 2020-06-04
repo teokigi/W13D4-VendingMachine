@@ -4,6 +4,6 @@ import product.ProductType;
 
 public interface IProduct {
     //
-    void calculate();
+    void addStock(IProduct product);
 
 }

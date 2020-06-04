@@ -23,10 +23,8 @@ public enum ProductType implements IProduct {
                 return this.name;
         }
 
-        public void calculate(){
-                // check that , the product type and the money the money has entered are equal.
-
-
+        public void addStock(){
+                //does nothing
         }
 }
 
