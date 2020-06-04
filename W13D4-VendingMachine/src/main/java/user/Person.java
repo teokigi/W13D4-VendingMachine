@@ -21,4 +21,6 @@ public class Person implements IProduct{
 
     }
 
+
+    //when vending machine rejects coin adds back to person.
 }
