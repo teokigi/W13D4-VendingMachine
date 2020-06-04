@@ -5,21 +5,16 @@ import product.ProductType;
 
 import java.util.ArrayList;
 
-public class Person implements IProduct{
+public class Person{
 
     private ArrayList<IProduct> snacks;
-    private ProductType snack;
-    private CoinType coin;
+    private ArrayList<CoinType> coin;
 
-    public Person(ProductType snack, CoinType coin){
+    public Person(){
         this.snacks = new ArrayList<>();
-        this.snack = snack;
-        this.coin = coin;
+        this.coin = new ArrayList<>();
     }
 
-    public void calculate(){
-
-    }
 
 
     //when vending machine rejects coin adds back to person.
